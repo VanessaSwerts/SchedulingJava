@@ -19,8 +19,8 @@ import javax.swing.JPanel;
 import view.ExecuteView;
 
 /**
+ * This class calculate the average time using the algorithm SJF (preemptive).
  *
- * @author Alexa
  */
 public class SJF extends Thread {
 

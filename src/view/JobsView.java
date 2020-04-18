@@ -8,10 +8,6 @@ package view;
 import javax.swing.JTextField;
 import scheduling.Jobs;
 
-/**
- *
- * @author Alexa
- */
 public class JobsView extends javax.swing.JPanel {
     public Jobs job = new Jobs();
     private SchedulingView scheduling;
@@ -71,9 +67,9 @@ public class JobsView extends javax.swing.JPanel {
         jTextField3 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 241, 208));
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel5.setBackground(new java.awt.Color(255, 241, 208));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel3.setText("ID");

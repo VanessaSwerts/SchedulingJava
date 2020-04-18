@@ -22,10 +22,6 @@ import scheduling.FCFS;
 import scheduling.Jobs;
 import scheduling.SJF;
 
-/**
- *
- * @author Alexa
- */
 public class ExecuteView extends javax.swing.JFrame {
 
     private SchedulingView scheduling;
@@ -39,7 +35,7 @@ public class ExecuteView extends javax.swing.JFrame {
     public ExecuteView(SchedulingView scheduling) {
         initComponents();
 
-        resultPane.setBackground(new Color(255, 241, 208));
+        resultPane.setBackground(new Color(255, 255, 255));
         resultPane.setLayout(new BoxLayout(resultPane, BoxLayout.Y_AXIS));
 
         scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -138,7 +134,7 @@ public class ExecuteView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 241, 208));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(245, 183, 0), 2, true));
 
         jButton4.setBackground(new java.awt.Color(7, 160, 195));
@@ -164,7 +160,7 @@ public class ExecuteView extends javax.swing.JFrame {
         jLabel3.setText("Scheduling Execute");
         jLabel3.setOpaque(true);
 
-        jPanel2.setBackground(new java.awt.Color(255, 241, 208));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

@@ -17,7 +17,8 @@ public class Jobs {
         this.arrivalTime = arrivalTime;
         this.burstTime = burstTime;
     }
-
+    
+    //Getters and Setters
     public int getExecuted() {
         return executed;
     }
@@ -33,8 +34,7 @@ public class Jobs {
     public void setLastExecuted(int lastExecuted) {
         this.lastExecuted = lastExecuted;
     }
-
-    //Getters and Setters
+    
     public int getId() {
         return id;
     }

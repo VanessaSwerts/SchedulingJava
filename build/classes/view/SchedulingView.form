@@ -37,7 +37,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="d0" green="f1" red="ff" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
 
@@ -82,11 +82,11 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" pref="65" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                       <Component id="jButton4" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace pref="27" max="32767" attributes="0"/>
+                      <EmptySpace pref="84" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -199,7 +199,7 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d0" green="f1" red="ff" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -221,28 +221,20 @@
                       <Component id="jButton3" min="-2" pref="170" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Component id="jPanel4" alignment="1" pref="900" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jPanel4" alignment="1" pref="900" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="348" max="32767" attributes="0"/>
+                      <Component id="jPanel4" min="-2" pref="225" max="-2" attributes="0"/>
+                      <EmptySpace pref="123" max="32767" attributes="0"/>
                       <Component id="jButton3" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Component id="jComboBox1" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel4" min="-2" pref="225" max="-2" attributes="0"/>
-                          <EmptySpace pref="284" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -271,7 +263,7 @@
             <Container class="javax.swing.JPanel" name="jPanel4">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="d0" green="f1" red="ff" type="rgb"/>
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
               </Properties>
 
