@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.BoxLayout;
 import static javax.swing.GroupLayout.Alignment.CENTER;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -28,7 +29,7 @@ import scheduling.SJF;
  */
 public class SchedulingView extends javax.swing.JFrame {
 
-    private List<AddJob> jobs = new ArrayList<AddJob>();
+    private List<JobsView> jobs = new ArrayList<JobsView>();
     private JPanel jobsPane = new JPanel();
 
     /**
@@ -53,7 +54,7 @@ public class SchedulingView extends javax.swing.JFrame {
     }
 
     private void addJob() {
-        AddJob addJob = new AddJob(jobs.size() + 1, this);
+        JobsView addJob = new JobsView(jobs.size() + 1, this);
         jobs.add(addJob);
         jobsPane.add(addJob);
         revalidate();
@@ -274,36 +275,53 @@ public class SchedulingView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        jPanel5.setVisible(true);
+        // jPanel5.setVisible(true);
+        new ExecuteView(this).setVisible(true);
 
-        List<Jobs> jobsReady = new ArrayList<Jobs>();
-        DecimalFormat df2 = new DecimalFormat("#.##");
-        df2.setRoundingMode(RoundingMode.DOWN);
-
-        for (AddJob job : jobs) {
-            int id = Integer.parseInt(job.getjTextField1().getText());
-            int arrivalTime = 0;
-            int burstTime = 0;
-            if(job.getjTextField2().getText().length() > 0){
-                arrivalTime = Integer.parseInt(job.getjTextField2().getText());
-            }
-            if(job.getjTextField3().getText().length() > 0){
-                burstTime = Integer.parseInt(job.getjTextField3().getText());
-            }
-
-            jobsReady.add(new Jobs(id, arrivalTime, burstTime));
-        }
-
-        if (jComboBox1.getSelectedIndex() == 0) {
-            FCFS fcfs = new FCFS(jobsReady);
-            fcfs.execute();
-            jLabel4.setText("TM = " + df2.format(fcfs.avgTime) + " segundos");
-        } else {
-            SJF sjf = new SJF(jobsReady);
-            sjf.execute();
-            jLabel4.setText("TM = " + df2.format(sjf.avgTime) + " segundos");
-        }
+//        List<Jobs> jobsReady = new ArrayList<Jobs>();
+//        DecimalFormat df2 = new DecimalFormat("#.##");
+//        df2.setRoundingMode(RoundingMode.DOWN);
+//
+//        for (JobsView job : jobs) {
+//            int id = Integer.parseInt(job.getjTextField1().getText());
+//            int arrivalTime = 0;
+//            int burstTime = 0;
+//            if(job.getjTextField2().getText().length() > 0){
+//                arrivalTime = Integer.parseInt(job.getjTextField2().getText());
+//            }
+//            if(job.getjTextField3().getText().length() > 0){
+//                burstTime = Integer.parseInt(job.getjTextField3().getText());
+//            }
+//
+//            jobsReady.add(new Jobs(id, arrivalTime, burstTime));
+//        }
+//
+//        if (jComboBox1.getSelectedIndex() == 0) {
+//            FCFS fcfs = new FCFS(jobsReady);
+//            fcfs.execute();
+//            jLabel4.setText("TM = " + df2.format(fcfs.avgTime) + " segundos");
+//        } else {
+//            SJF sjf = new SJF(jobsReady);
+//            sjf.execute();
+//            jLabel4.setText("TM = " + df2.format(sjf.avgTime) + " segundos");
+//        }
     }//GEN-LAST:event_jButton1MouseClicked
+
+    public List<JobsView> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<JobsView> jobs) {
+        this.jobs = jobs;
+    }
+
+    public JComboBox<String> getjComboBox1() {
+        return jComboBox1;
+    }
+
+    public void setjComboBox1(JComboBox<String> jComboBox1) {
+        this.jComboBox1 = jComboBox1;
+    }
 
     /**
      * @param args the command line arguments

@@ -12,21 +12,19 @@ import scheduling.Jobs;
  *
  * @author Alexa
  */
-public class AddJob extends javax.swing.JPanel {
+public class JobsView extends javax.swing.JPanel {
     public Jobs job = new Jobs();
     private SchedulingView scheduling;
     
     /**
      * Creates new form AddJobs
      */
-    public AddJob(int id, SchedulingView scheduling) {
+    public JobsView(int id, SchedulingView scheduling) {
         initComponents();
  
         this.job.setId(id);
         this.scheduling = scheduling;
-//        this.jobs = jobs;
-//        this.jobsPane = jobsPane;
-        
+
         jTextField1.setText(id + "");
         
     }

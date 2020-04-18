@@ -2,7 +2,7 @@ package scheduling;
 
 public class Jobs {
 
-    private int id;
+    private int id = 0;
     private int arrivalTime;
     private int burstTime;
     private int executed;

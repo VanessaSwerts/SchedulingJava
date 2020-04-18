@@ -1,20 +1,33 @@
 package scheduling;
 
+import java.awt.Color;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import view.ExecuteView;
+import view.SchedulingView;
 
-public class FCFS {
+public class FCFS extends Thread {
+
     private List<Jobs> readyQueue = new ArrayList<Jobs>();
     public double avgTime = 0;
     private double totalJobs = 0;
     private double totalTime = 0;
     private double position = 0;
 
-    public FCFS(List<Jobs> readyQueue) {
+    private ExecuteView executeView;
+
+    public FCFS(List<Jobs> readyQueue, ExecuteView executeView) {
         this.readyQueue = readyQueue;
         this.totalJobs = readyQueue.size();
+        this.executeView = executeView;
 
         Collections.sort(this.readyQueue, firstArrived);
 
@@ -34,20 +47,38 @@ public class FCFS {
         }
     };
 
-    public void execute() {
+    @Override
+    public void run() {
         for (Jobs jobs : readyQueue) {
             totalTime = totalTime + position;
             position = position + jobs.getBurstTime();
 
-//            try {
-//                System.out.println("Processo P" + jobs.getId() + " está executando (Burst Time = " + jobs.getBurstTime() + " segundos)");
-//                Thread.sleep(jobs.getBurstTime() * 1000);
-//            } catch (InterruptedException ex) {
-//                Logger.getLogger(FCFS.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+            for (int i = jobs.getBurstTime(); i > 0; i--) {
+                this.print(Color.black, "Processo P" + jobs.getId() + " está executando (Burst Time = " + i + " segundos)");
+            }
+
+            this.print(Color.red, "Processo P" + jobs.getId() + " foi finalizado (Burst Time = 0 segundos)");
         }
 
         this.avgTime = this.totalTime / this.totalJobs;
-        System.out.println("TM = " + this.avgTime + " segundos");
+        DecimalFormat df2 = new DecimalFormat("#.##");
+        df2.setRoundingMode(RoundingMode.DOWN);
+        this.executeView.getjLabel4().setText("TM = " + df2.format(this.avgTime) + " segundos");
+        this.executeView.getScrollPane().getVerticalScrollBar().removeAdjustmentListener(this.executeView.getListener());
+    }
+
+    private void print(Color color, String message) {
+        JLabel label = new JLabel();
+        label.setText(message);
+        label.setForeground(color);
+        this.executeView.getResultPane().add(label);
+        this.executeView.getResultPane().revalidate();
+        this.executeView.getResultPane().repaint();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(FCFS.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
