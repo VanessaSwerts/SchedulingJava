@@ -77,17 +77,20 @@ public class JobsView extends javax.swing.JPanel {
 
         jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextField1.setMargin(new java.awt.Insets(2, 12, 2, 2));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel4.setText("Arrival Time");
         jLabel4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextField2.setMargin(new java.awt.Insets(2, 12, 2, 2));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel5.setText("Burst Time");
 
         jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextField3.setMargin(new java.awt.Insets(2, 12, 2, 2));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
