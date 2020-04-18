@@ -8,6 +8,16 @@ public class Jobs {
     private int executed;
     private int lastExecuted;
 
+    public Jobs() {
+
+    }
+    
+    public Jobs(int id, int arrivalTime, int burstTime) {
+        this.id = id;
+        this.arrivalTime = arrivalTime;
+        this.burstTime = burstTime;
+    }
+
     public int getExecuted() {
         return executed;
     }
@@ -22,12 +32,6 @@ public class Jobs {
 
     public void setLastExecuted(int lastExecuted) {
         this.lastExecuted = lastExecuted;
-    }
-
-    public Jobs(int id, int arrivalTime, int burstTime) {
-        this.id = id;
-        this.arrivalTime = arrivalTime;
-        this.burstTime = burstTime;
     }
 
     //Getters and Setters

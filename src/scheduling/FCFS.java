@@ -4,13 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class FCFS {
-
     private List<Jobs> readyQueue = new ArrayList<Jobs>();
-    private double avgTime = 0;
+    public double avgTime = 0;
     private double totalJobs = 0;
     private double totalTime = 0;
     private double position = 0;
@@ -21,7 +18,7 @@ public class FCFS {
 
         Collections.sort(this.readyQueue, firstArrived);
 
-        this.position = this.readyQueue.get(0).getArrivalTime() - 1;
+        this.position = this.readyQueue.get(0).getArrivalTime();
     }
 
     public static Comparator<Jobs> firstArrived = new Comparator<Jobs>() {
@@ -42,12 +39,12 @@ public class FCFS {
             totalTime = totalTime + position;
             position = position + jobs.getBurstTime();
 
-            try {
-                System.out.println("Processo P" + jobs.getId() + " está executando (Burst Time = " + jobs.getBurstTime() + " segundos)");
-                Thread.sleep(jobs.getBurstTime() * 1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(FCFS.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            try {
+//                System.out.println("Processo P" + jobs.getId() + " está executando (Burst Time = " + jobs.getBurstTime() + " segundos)");
+//                Thread.sleep(jobs.getBurstTime() * 1000);
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(FCFS.class.getName()).log(Level.SEVERE, null, ex);
+//            }
         }
 
         this.avgTime = this.totalTime / this.totalJobs;

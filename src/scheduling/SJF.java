@@ -17,20 +17,16 @@ import java.util.logging.Logger;
  * @author Alexa
  */
 public class SJF {
-
     private List<Jobs> jobs = new ArrayList<Jobs>();
-    private double avgTime = 0;
+    public double avgTime = 0;
     private double totalJobs = 0;
     private double totalTime = 0;
-    private double position = 0;
 
     public SJF(List<Jobs> jobs) {
         this.jobs = jobs;
         this.totalJobs = jobs.size();
 
         Collections.sort(this.jobs, firstArrived);
-
-        this.position = this.jobs.get(0).getArrivalTime() - 1;
     }
 
     public void execute() {
@@ -62,12 +58,12 @@ public class SJF {
                 }
             }
             
-            try {
-                System.out.println("Processo P" + currentJob.getId() + " está executando (Burst Time = " + currentJob.getBurstTime() + ")");
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(SJF.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            try {
+//                System.out.println("Processo P" + currentJob.getId() + " está executando (Burst Time = " + currentJob.getBurstTime() + ")");
+//                Thread.sleep(1000);
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(SJF.class.getName()).log(Level.SEVERE, null, ex);
+//            }
             
             currentJob.setBurstTime(currentJob.getBurstTime() - 1);
 
