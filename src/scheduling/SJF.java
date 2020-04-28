@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import view.ExecuteView;
 
 /**
@@ -23,17 +22,11 @@ import view.ExecuteView;
  *
  */
 public class SJF extends Thread {
-
     private List<Jobs> jobs = new ArrayList<Jobs>();
-    public double avgTime = 0;
-    private double totalJobs = 0;
-    private double totalTime = 0;
-
     private ExecuteView executeView;
 
     public SJF(List<Jobs> jobs, ExecuteView executeView) {
         this.jobs = jobs;
-        this.totalJobs = jobs.size();
         this.executeView = executeView;
 
         Collections.sort(this.jobs, firstArrived);
@@ -41,8 +34,13 @@ public class SJF extends Thread {
 
     @Override
     public void run() {
+        double totalTime = 0;
+        double avgTime = 0;
+        double totalJobs = jobs.size();
+        
         try {
             double total = 0;
+            
             List<Jobs> executedJobs = new ArrayList<Jobs>();
             List<Jobs> readyQueue = new ArrayList<Jobs>();
 
@@ -58,7 +56,6 @@ public class SJF extends Thread {
                         readyQueue.add(job);
                         if (currentJob == null) {
                             currentJob = job;
-                            //System.out.println(currentJob.getId());
                         }
                     }
                 }
@@ -76,25 +73,26 @@ public class SJF extends Thread {
                 currentJob.setBurstTime(currentJob.getBurstTime() - 1);
 
                 if (currentJob.getBurstTime() == 0) {
-                    this.print(Color.red, "Processo P" + currentJob.getId() + " foi finalizado (Burst Time = 0 segundos)");
-
                     for (int j = 0; j < readyQueue.size(); j++) {
                         if (readyQueue.get(j).getId() == currentJob.getId()) {
                             readyQueue.remove(j);
                         }
                     }
                     executedJobs.add(currentJob);
+                    
+                    this.print(Color.red, "Processo P" + currentJob.getId() + " foi finalizado (Burst Time = 0 segundos)");
                 }
             }
 
             for (Jobs executedJob : executedJobs) {
-                this.totalTime = this.totalTime + executedJob.getLastExecuted() - executedJob.getArrivalTime() - (executedJob.getExecuted() - 1);
+                totalTime = totalTime + executedJob.getLastExecuted() - executedJob.getArrivalTime() - (executedJob.getExecuted() - 1);
             }
 
-            this.avgTime = this.totalTime / this.totalJobs;
+            avgTime = totalTime / totalJobs;
+            
             DecimalFormat df2 = new DecimalFormat("#.##");
             df2.setRoundingMode(RoundingMode.DOWN);
-            this.executeView.getjLabel4().setText("TM = " + df2.format(this.avgTime) + " segundos");
+            this.executeView.getAvgResult().setText("TM = " + df2.format(avgTime) + " segundos");
             this.executeView.getScrollPane().getVerticalScrollBar().removeAdjustmentListener(this.executeView.getListener());
         } catch (Exception ex) {
             System.out.println(ex);

@@ -1,10 +1,10 @@
 package scheduling;
 
 public class Jobs {
-
     private int id = 0;
     private int arrivalTime;
     private int burstTime;
+    
     private int executed;
     private int lastExecuted;
 

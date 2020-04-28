@@ -6,26 +6,16 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.BoxLayout;
-import static javax.swing.GroupLayout.Alignment.CENTER;
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
-import scheduling.FCFS;
-import scheduling.Jobs;
-import scheduling.SJF;
 
 
 public class SchedulingView extends javax.swing.JFrame {
-
     private List<JobsView> jobs = new ArrayList<JobsView>();
     private JPanel jobsPane = new JPanel();
 
@@ -35,15 +25,15 @@ public class SchedulingView extends javax.swing.JFrame {
     public SchedulingView() {
         initComponents();
 
-        jobsPane.setBackground(new Color(255, 241, 208));
+        jobsPane.setBackground(new Color(255, 255, 255));
         jobsPane.setLayout(new BoxLayout(jobsPane, BoxLayout.Y_AXIS));
 
         JScrollPane scrollPane = new JScrollPane(jobsPane);
         scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
-        jPanel4.add(scrollPane);
-        jPanel4.setBorder(new EmptyBorder(10, 10, 10, 10));
+        jobsList.add(scrollPane);
+        jobsList.setBorder(new EmptyBorder(10, 10, 10, 10));
 
         this.addJob();
     }
@@ -81,10 +71,10 @@ public class SchedulingView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        executeButton = new javax.swing.JButton();
+        jobsList = new javax.swing.JPanel();
+        addJobButton = new javax.swing.JButton();
+        algorithmBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -126,60 +116,63 @@ public class SchedulingView extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(7, 160, 195));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(245, 183, 0));
-        jButton1.setText("Execute");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        executeButton.setBackground(new java.awt.Color(7, 160, 195));
+        executeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        executeButton.setForeground(new java.awt.Color(245, 183, 0));
+        executeButton.setText("Execute");
+        executeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        executeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                executeButtonMouseClicked(evt);
             }
         });
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setLayout(new java.awt.BorderLayout());
+        jobsList.setBackground(new java.awt.Color(255, 255, 255));
+        jobsList.setLayout(new java.awt.BorderLayout());
 
-        jButton3.setBackground(new java.awt.Color(7, 160, 195));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(245, 183, 0));
-        jButton3.setText("Add Job");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        addJobButton.setBackground(new java.awt.Color(7, 160, 195));
+        addJobButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addJobButton.setForeground(new java.awt.Color(245, 183, 0));
+        addJobButton.setText("Add Job");
+        addJobButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addJobButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                addJobButtonMouseClicked(evt);
             }
         });
 
-        jComboBox1.setBackground(new java.awt.Color(7, 160, 195));
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(245, 183, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    FCFS - Not Preemptive", "    SJF - Preemptive" }));
+        algorithmBox.setBackground(new java.awt.Color(7, 160, 195));
+        algorithmBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        algorithmBox.setForeground(new java.awt.Color(245, 183, 0));
+        algorithmBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    FCFS - Not Preemptive", "    SJF - Preemptive" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jobsList, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(362, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(100, 100, 100)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(algorithmBox, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(executeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(288, 288, 288))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(addJobButton, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jobsList, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addJobButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(algorithmBox, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(executeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -200,14 +193,13 @@ public class SchedulingView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void addJobButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJobButtonMouseClicked
         this.addJob();
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_addJobButtonMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-
+    private void executeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_executeButtonMouseClicked
         new ExecuteView(this).setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_executeButtonMouseClicked
 
     public List<JobsView> getJobs() {
         return jobs;
@@ -218,11 +210,11 @@ public class SchedulingView extends javax.swing.JFrame {
     }
 
     public JComboBox<String> getjComboBox1() {
-        return jComboBox1;
+        return algorithmBox;
     }
 
     public void setjComboBox1(JComboBox<String> jComboBox1) {
-        this.jComboBox1 = jComboBox1;
+        this.algorithmBox = jComboBox1;
     }
 
     /**
@@ -264,14 +256,14 @@ public class SchedulingView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton addJobButton;
+    private javax.swing.JComboBox<String> algorithmBox;
+    private javax.swing.JButton executeButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jobsList;
     // End of variables declaration//GEN-END:variables
 }

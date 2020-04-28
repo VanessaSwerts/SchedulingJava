@@ -17,23 +17,14 @@ import view.ExecuteView;
  *
  */
 public class FCFS extends Thread {
-
     private List<Jobs> readyQueue = new ArrayList<Jobs>();
-    public double avgTime = 0;
-    private double totalJobs = 0;
-    private double totalTime = 0;
-    private double position = 0;
-
     private ExecuteView executeView;
     
     public FCFS(List<Jobs> readyQueue, ExecuteView executeView) {
         this.readyQueue = readyQueue;
-        this.totalJobs = readyQueue.size();
         this.executeView = executeView;
         
         Collections.sort(this.readyQueue, firstArrived);
-
-        this.position = this.readyQueue.get(0).getArrivalTime();
     }
     
     /**
@@ -57,21 +48,27 @@ public class FCFS extends Thread {
      */
     @Override
     public void run() {
+        double totalTime = 0;
+        double avgTime = 0;
+        double totalJobs = readyQueue.size();
+        double lastTime = this.readyQueue.get(0).getArrivalTime();
+        
         for (Jobs jobs : readyQueue) {
-            totalTime = totalTime + position - jobs.getArrivalTime();
-            position = position + jobs.getBurstTime();
-
             for (int i = jobs.getBurstTime(); i > 0; i--) {
                 this.print(Color.black, "Processo P" + jobs.getId() + " está executando (Burst Time = " + i + " segundos)");
             }
 
             this.print(Color.red, "Processo P" + jobs.getId() + " foi finalizado (Burst Time = 0 segundos)");
+            
+            totalTime = totalTime + lastTime;
+            lastTime = lastTime + jobs.getBurstTime();
         }
 
-        this.avgTime = this.totalTime / this.totalJobs;
+        avgTime = totalTime / totalJobs;
+        
         DecimalFormat df2 = new DecimalFormat("#.##");
         df2.setRoundingMode(RoundingMode.DOWN);
-        this.executeView.getjLabel4().setText("TM = " + df2.format(this.avgTime) + " segundos");
+        this.executeView.getAvgResult().setText("TM = " + df2.format(avgTime) + " segundos");
         this.executeView.getScrollPane().getVerticalScrollBar().removeAdjustmentListener(this.executeView.getListener());
     }
 

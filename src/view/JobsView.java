@@ -21,32 +21,31 @@ public class JobsView extends javax.swing.JPanel {
         this.job.setId(id);
         this.scheduling = scheduling;
 
-        jTextField1.setText(id + "");
-        
+        idInput.setText(id + "");  
     }
 
-    public JTextField getjTextField1() {
-        return jTextField1;
+    public JTextField getId() {
+        return idInput;
     }
 
-    public void setjTextField1(JTextField jTextField1) {
-        this.jTextField1 = jTextField1;
+    public void setId(JTextField jTextField1) {
+        this.idInput = jTextField1;
     }
 
-    public JTextField getjTextField2() {
-        return jTextField2;
+    public JTextField getArrivalTime() {
+        return arriavalTimeInput;
     }
 
-    public void setjTextField2(JTextField jTextField2) {
-        this.jTextField2 = jTextField2;
+    public void setArrivalTime(JTextField jTextField2) {
+        this.arriavalTimeInput = jTextField2;
     }
 
-    public JTextField getjTextField3() {
-        return jTextField3;
+    public JTextField getBurstTime() {
+        return burstTimeInput;
     }
 
-    public void setjTextField3(JTextField jTextField3) {
-        this.jTextField3 = jTextField3;
+    public void setBurstTime(JTextField jTextField3) {
+        this.burstTimeInput = jTextField3;
     }
 
     /**
@@ -59,46 +58,46 @@ public class JobsView extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
+        idInput = new javax.swing.JTextField();
+        arrivalTimeLabel = new javax.swing.JLabel();
+        arriavalTimeInput = new javax.swing.JTextField();
+        burstTimeLabel = new javax.swing.JLabel();
+        burstTimeInput = new javax.swing.JTextField();
+        removeButton = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel3.setText("ID");
-        jLabel3.setToolTipText("");
+        idLabel.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        idLabel.setText("ID");
+        idLabel.setToolTipText("");
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField1.setMargin(new java.awt.Insets(2, 12, 2, 2));
+        idInput.setEditable(false);
+        idInput.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        idInput.setMargin(new java.awt.Insets(2, 12, 2, 2));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel4.setText("Arrival Time");
-        jLabel4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        arrivalTimeLabel.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        arrivalTimeLabel.setText("Arrival Time");
+        arrivalTimeLabel.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField2.setMargin(new java.awt.Insets(2, 12, 2, 2));
+        arriavalTimeInput.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        arriavalTimeInput.setMargin(new java.awt.Insets(2, 12, 2, 2));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel5.setText("Burst Time");
+        burstTimeLabel.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        burstTimeLabel.setText("Burst Time");
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField3.setMargin(new java.awt.Insets(2, 12, 2, 2));
+        burstTimeInput.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        burstTimeInput.setMargin(new java.awt.Insets(2, 12, 2, 2));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel1.setText("Excluir");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        removeButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        removeButton.setForeground(new java.awt.Color(255, 51, 51));
+        removeButton.setText("Excluir");
+        removeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        removeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                removeButtonMouseClicked(evt);
             }
         });
 
@@ -109,19 +108,19 @@ public class JobsView extends javax.swing.JPanel {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(idInput, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(arriavalTimeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(arrivalTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(burstTimeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(removeButton))
+                    .addComponent(burstTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -130,18 +129,18 @@ public class JobsView extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+                        .addComponent(idLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(idInput, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(arrivalTimeLabel)
+                            .addComponent(burstTimeLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(arriavalTimeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(burstTimeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
 
@@ -161,19 +160,19 @@ public class JobsView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void removeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeButtonMouseClicked
         scheduling.removeJob(this.job.getId());
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_removeButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField arriavalTimeInput;
+    private javax.swing.JLabel arrivalTimeLabel;
+    private javax.swing.JTextField burstTimeInput;
+    private javax.swing.JLabel burstTimeLabel;
+    private javax.swing.JTextField idInput;
+    private javax.swing.JLabel idLabel;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel removeButton;
     // End of variables declaration//GEN-END:variables
 }
